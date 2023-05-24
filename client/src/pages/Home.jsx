@@ -123,3 +123,5 @@ const Home = () => {
 }
 
 export default Home     
+
+//http://localhost:8080 for local machine
