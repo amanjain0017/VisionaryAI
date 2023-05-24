@@ -21,7 +21,7 @@ const Create = () => {
       try {
         setgeneratingImg(true);
 
-        const reponse = await fetch('http://localhost:8080/api/v1/gen', {
+        const reponse = await fetch('https://visionaryai-backend.onrender.com/api/v1/gen', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Create = () => {
       setloading(true);
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch('https://visionaryai-backend.onrender.com/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -161,3 +161,5 @@ const Create = () => {
 }
 
 export default Create
+
+//http://localhost:8080 for local machine
