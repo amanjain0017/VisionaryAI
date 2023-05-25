@@ -86,7 +86,15 @@ const Create = () => {
     <section className="max-w-7x1 mx-auto">
      <div>
         <h1 className="font-extrabold text-[#fb0c0cfd] text-[36px]"> Create </h1>
-        <p className="mt-2 text-[#55585b] text-[18px] max-w[500px]"> Unleash your imagination and create captivating, beautiful images using VisionaryAI, and showcase them in our gallery.</p>
+        <p className="mt-2 text-[#55585b] text-[18px] max-w[500px]"> Unleash your imagination and create captivating, beautiful images using VisionaryAI, and showcase them in our gallery.
+        <br /><br />
+        STEP 1 : Enter your name.<br /> 
+        STEP 2 : Enter your prompt for the image. Feel free to use a suggested prompt !<br />
+        STEP 3 : Click on Generate to create the picture.<br />
+        STEP 4 : Share it with gallery when you are satisfied with the image generated.<br />
+        STEP 5 : Enjoy browsing through your creation amongst many other creations from other creators. <br />
+        
+        </p>
       </div>
 
       <form className="mt-16 max-w-3xl " onSubmit={handleSubmit}>
