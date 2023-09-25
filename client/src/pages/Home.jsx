@@ -26,6 +26,7 @@ const Home = () => {
       setLoading(true);
 
       try {
+        //req to backend to get all posts
         const response = await fetch('https://visionaryai-backend.onrender.com/api/v1/post', {
           method: 'GET',
           headers: {
@@ -34,8 +35,10 @@ const Home = () => {
         })
         
         if(response.ok) {
+          //parse the response from backend
           const result = await response.json();
-
+          
+          //to show the latest posts at the top
           setallPosts(result.data.reverse());
         }
 
@@ -53,17 +56,19 @@ const Home = () => {
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
 
+    //searched text is the value entered in input form
     setsearchedText(e.target.value);
 
-    setsearchTimeout(
+    setsearchTimeout( 
       setTimeout(() => {
+        //filter all the results that have searchedText in the name or pompt
         const searchResults = allPosts.filter((post) => 
           post.name.toLowerCase().includes(searchedText.toLowerCase()) || post.prompt.toLowerCase().includes(searchedText.toLowerCase())
         );
         
         setsearchedResults(searchResults);
       },1000)
-    );
+    ); 
   }
 
   return (
@@ -107,12 +112,12 @@ const Home = () => {
               searchedText ? (
                 <RenderCards 
                   data = {searchedResults}
-                  title = "No search results found"
+                  title = "No search results found"   //alt when no match
                 />
               ) : (
                 <RenderCards
                   data = {allPosts}
-                  title = "No posts found"
+                  title = "No posts found"  //alt when no match
                 />
               )
             }

@@ -17,10 +17,12 @@ const Create = () => {
   const [loading, setloading] = useState(false);
 
   const generateImage = async () => {
-    if(form.prompt){
+    if(form.prompt){    //prompt exists
       try {
+        //changing the state
         setgeneratingImg(true);
 
+        //making request to the backend
         const reponse = await fetch('https://visionaryai-backend.onrender.com/api/v1/gen', {
           method: 'POST',
           headers: {
@@ -29,13 +31,15 @@ const Create = () => {
           body: JSON.stringify({prompt: form.prompt}),        
         })
         
+        //parsing the response
         const data = await reponse.json();
 
         setform({...form, photo: `data:image/jpeg;base64,${data.photo}`})
 
-      } catch (error) {
+      } catch (error) {   //display the error
         alert(error);        
       } finally {
+        //changing the state
         setgeneratingImg(false);
       }
 
@@ -45,6 +49,7 @@ const Create = () => {
   }
 
   const handleSubmit = async (e) => {
+    //to ensure browser doesnt reload app
     e.preventDefault();
 
     if(form.prompt && form.photo){
@@ -59,7 +64,9 @@ const Create = () => {
           body: JSON.stringify(form),
         })
 
+        //got res successfully
         await response.json();
+        //redirect to home
         navigate('/');
 
       } catch (error) {
@@ -114,8 +121,8 @@ const Create = () => {
             placeholder = "A cupcake with legs and arms dancing on a stage."
             value = {form.prompt}
             handleChange = {handleChange}
-            isSuggestMe
-            handleSuggestMe = {handleSuggestMe}
+            isSuggestMe //to know we have to show additional button with the form field
+            handleSuggestMe = {handleSuggestMe} //ensures a new prompt each time
           />
 
           <div className="relative bg-gray-50 border border-gray-500 text-gray-800 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 w-64 p-3 h-64 flex justify-center items-center ">
