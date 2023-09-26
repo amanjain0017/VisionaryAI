@@ -33,9 +33,7 @@ The front-end has been hosted using Netlify while Render deploys the backend.
 - **Responsive Design**: The user interface is designed to work smoothly on various devices and screen sizes.
 
 ## Demo
-
-Insert gif or link to demo
-
+https://github.com/amanjain0017/VisionaryAI/assets/132781670/f87de92f-be33-48c0-80f2-0ea2e4186a80
 
 ## Technologies Used
 
